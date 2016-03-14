@@ -15,6 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".PreciousOpen"></activity>
+        <activity android:name=".PreciousResult"></activity>
     </application>
 
 </manifest>
