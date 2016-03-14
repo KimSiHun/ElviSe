@@ -22,4 +22,23 @@
         android:layout_below="@+id/goSangmin"
         android:text="goGoohyun" />
 
+    <EditText
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/phoneText"
+        android:hint="전화번호 ex>01012345678"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="93dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="입장"
+        android:id="@+id/enterBtn"
+        android:layout_alignBaseline="@+id/phoneText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
 </RelativeLayout>

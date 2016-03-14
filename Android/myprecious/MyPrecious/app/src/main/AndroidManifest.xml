@@ -18,6 +18,7 @@
 
         <activity android:name=".PreciousOpen"></activity>
         <activity android:name=".PreciousResult"></activity>
+        <activity android:name=".EnterQrPage"></activity>
     </application>
 
 </manifest>

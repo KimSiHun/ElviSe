@@ -32,5 +32,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button enterBtn = (Button)findViewById(R.id.enterBtn);
+        enterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,EnterQrPage.class);
+                startActivity(intent);
+            }
+        });
     }
 }
