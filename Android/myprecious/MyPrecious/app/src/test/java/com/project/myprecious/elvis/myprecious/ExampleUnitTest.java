@@ -1,4 +1,4 @@
-package com.myprecious.elvis.myprecious;
+package com.project.myprecious.elvis.myprecious;
 
 import org.junit.Test;
 

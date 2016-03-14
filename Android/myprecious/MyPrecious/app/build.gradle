@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.myprecious.elvis.myprecious"
+        applicationId "com.project.myprecious.elvis.myprecious"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
