@@ -17,5 +17,12 @@ public class IndexController {
 
 		return "index";
 	}
+	
+
+	@RequestMapping(value = "/eventlist", method = RequestMethod.GET)
+	public String event(Locale locale, Model model) {
+
+		return "eventList";
+	}
 
 }
