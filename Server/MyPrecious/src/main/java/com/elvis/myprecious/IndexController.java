@@ -25,7 +25,7 @@ public class IndexController {
 		return "eventList";
 	}
 	
-	@RequestMapping(value = "/itemRegist", method = RequestMethod.GET)
+	@RequestMapping(value = "/itemregist", method = RequestMethod.GET)
 	public String item(Locale locale, Model model) {
 
 		return "itemRegist";
