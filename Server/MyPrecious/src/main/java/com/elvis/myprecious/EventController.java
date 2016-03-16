@@ -7,10 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.elvis.myprecious.model.Event;
 import com.elvis.myprecious.model.ResponseObject;
 import com.elvis.myprecious.service.EventService;
 
@@ -34,5 +36,22 @@ public class EventController {
 		response.body = eventService.getEvents(adminId);
 		
 		return response;
+	}
+	
+	@RequestMapping(value = "admin/{adminId}/event", method = RequestMethod.POST, produces = "application/json")
+	@ResponseBody
+	public ResponseObject insertEvent(@PathVariable int adminId, @RequestBody Event event) {
+		logger.info("insertEvent");
+		
+		event.setAdminId(adminId);
+		eventService.insertEvents(event);
+		
+		ResponseObject response = new ResponseObject();
+		response.code = 0;
+		response.msg = "¼º°ø";
+		response.body = event;
+		
+		return response;
+	
 	}
 }
