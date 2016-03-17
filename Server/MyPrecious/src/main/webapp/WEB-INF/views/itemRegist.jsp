@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=5a3b393c51ad7571d6a92599bd57a77e"></script>
+  
   <style>
   
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
@@ -35,7 +37,51 @@
       }
       .row.content {height: auto;} 
     }
+    
+    #mapDiv{
+    border:#E8FFFF;
+    width: 98%;
+    height: 450px;
+    
+    }
+    
   </style>
+  
+  <script type="text/javascript">
+  
+  $(document).ready(function(){
+		$("button").click(function(){
+			var keyWord = $("#keyWord").val();			
+			keyWord = encodeURIComponent(keyWord);
+			
+			var url = "https://apis.daum.net/local/v1/search/keyword.json?apikey=5a3b393c51ad7571d6a92599bd57a77e&query="+keyWord;
+			
+			$.getJSON(url + "&callback=?" , function(json){
+				
+				var items = json.channel.item;
+				$.each(items, function(i, it){
+					var latitude = it.latitude;
+					var longitude = it.longitude;
+					
+					var pos = latitude + "," + longitude;
+					
+					if(i == 0){
+						var container = document.getElementById('mapDiv'); //지도를 담을 영역의 DOM 레퍼런스
+						var options = { //지도를 생성할 때 필요한 기본 옵션
+							center: new daum.maps.LatLng(latitude, longitude), //지도의 중심좌표.
+							level: 3 //지도의 레벨(확대, 축소 정도)
+						};
+	
+						var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+					}
+				});	
+			});				
+		});
+		$("#keyWord").val("");
+	});
+  
+  </script>
+  
 </head>
 <body>
 
@@ -99,25 +145,14 @@
 
     <div class="col-sm-8">
       <h4><small>Items</small></h4>
-      <hr>
+      <div><input id="keyWord" placeholder="장소 입력">
+			
+		<button type="button" class="btn btn-default">검색</button></div>
+		<hr>
+		<br>
       
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
-      <!-- 지도 들어가야 할 공간 -->
+      <div id="mapDiv"></div>
+     
   
       <div class="row">
         
