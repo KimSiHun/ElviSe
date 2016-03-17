@@ -44,6 +44,22 @@
     height: 450px;
     
     }
+
+ table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th {
+  text-align: center;
+  }
+  
+  th, td {
+  	
+    border-top: 1px solid #bcbcbc;
+    border-bottom: 1px solid #bcbcbc;
+    padding: 5px 10px;
+  }
     
   </style>
   
@@ -135,16 +151,50 @@
     </div>
   </div>
       
-      <div class="row">
-        <div class="col-xs-6 col-md-4">테이블 공간</div>
-        <div class="col-xs-6 col-md-4">테이블 공간</div>
-        <div class="col-xs-6 col-md-4">테이블 공간</div>   
-     </div>
+<table>
+
+<caption>아이템 목록</caption>
+
+  <thead>
+  <tr>
+    <th>아이템</th>
+    <th>리스트</th>		
+    <th>아뭘랑</th>
+  </tr>
+  </thead>
+  
+  <tbody>
+  <tr>
+    <td>2행1열</td>
+    <td>2행2열</td>		
+    <td>2행3열</td>
+  </tr>
+  <tr>
+    <td>3행1열</td>
+    <td>3행2열</td>		
+    <td>3행3열</td>
+  </tr>
+  <tr>
+    <td>4행1열</td>
+    <td>4행2열</td>		
+    <td>4행3열</td>
+  </tr>
+  <tr>
+    <td>5행1열</td>
+    <td>5행2열</td>		
+    <td>5행3열</td>
+  </tr>
+  </tbody>
+</table>
+
+<br><br><br><br><br>
+
+
       
     </div>
 
     <div class="col-sm-8">
-      <h4><small>Items</small></h4>
+      <h4><small>아이템 위치</small></h4>
       <div><input id="keyWord" placeholder="장소 입력">
 			
 		<button type="button" class="btn btn-default">검색</button></div>
