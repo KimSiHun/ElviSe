@@ -17,4 +17,8 @@ public class EventService {
 	public List<Event> getEvents(int adminId){
 		return eventDAO.getEvent(adminId);
 	}
+	
+	public int insertEvents(Event event) {
+		return eventDAO.insertEvent(event);
+	}
 }

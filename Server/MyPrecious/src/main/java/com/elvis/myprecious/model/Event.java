@@ -4,7 +4,7 @@ public class Event {
 	private int e_no;
 	private String e_name;
 	private String e_starttime;
-	private String a_endtime;
+	private String e_endtime;
 	private int e_peoplecnt;
 	private int adminId;
 	
@@ -12,12 +12,12 @@ public class Event {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Event(int e_no, String e_name, String e_starttime, String a_endtime, int e_peoplecnt, int adminId) {
+	public Event(int e_no, String e_name, String e_starttime, String e_endtime, int e_peoplecnt, int adminId) {
 		super();
 		this.e_no = e_no;
 		this.e_name = e_name;
 		this.e_starttime = e_starttime;
-		this.a_endtime = a_endtime;
+		this.e_endtime = e_endtime;
 		this.e_peoplecnt = e_peoplecnt;
 		this.adminId = adminId;
 	}
@@ -46,12 +46,12 @@ public class Event {
 		this.e_starttime = e_starttime;
 	}
 
-	public String getA_endtime() {
-		return a_endtime;
+	public String getE_endtime() {
+		return e_endtime;
 	}
 
-	public void setA_endtime(String a_endtime) {
-		this.a_endtime = a_endtime;
+	public void setE_endtime(String e_endtime) {
+		this.e_endtime = e_endtime;
 	}
 
 	public int getE_peoplecnt() {
@@ -69,6 +69,9 @@ public class Event {
 	public void setAdminId(int adminId) {
 		this.adminId = adminId;
 	}
+
+	
+
 	
 	
 	

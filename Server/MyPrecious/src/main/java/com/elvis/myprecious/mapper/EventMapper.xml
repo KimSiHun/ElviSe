@@ -4,4 +4,8 @@
 <select id="getEvent" resultType="com.elvis.myprecious.model.Event">
 	SELECT * FROM event where adminId=#{adminId}
 </select>
+<insert id="insertEvent"  parameterType="com.elvis.myprecious.model.Event" useGeneratedKeys="true" keyProperty="id">
+	INSERT INTO event (e_name, e_starttime, e_endtime, e_peoplecnt, adminId) 
+	VALUES (#{e_name}, #{e_starttime}, #{e_endtime}, #{e_peoplecnt}, #{adminId})
+</insert>
 </mapper>

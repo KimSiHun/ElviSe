@@ -19,4 +19,8 @@ public class EventDAO {
 	public List<Event> getEvent(int adminId){
 		return sqlSession.selectList(MAPPER_NS + ".getEvent", adminId);
 	}
+	
+	public int insertEvent(Event event) {
+		return sqlSession.insert(MAPPER_NS + ".insertEvent", event);
+	}
 }
