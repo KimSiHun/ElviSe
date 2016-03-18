@@ -4,6 +4,10 @@ public class User {
     private int u_no;
     private String u_phoneNumber;
 
+    public User(String u_phoneNumber) {
+        this.u_phoneNumber = u_phoneNumber;
+    }
+
     public int getU_no() {
         return u_no;
     }
