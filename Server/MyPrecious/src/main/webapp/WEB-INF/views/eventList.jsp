@@ -23,9 +23,37 @@
 			<h1>이벤트 리스트 관리 페이지</h1>
 		</div>
 
+
+
 		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
 			data-target="#myModal">이벤트 만들기</button>
 
+		<!-- 등록한 이벤트 관리  -->
+		<h2>이벤트 현황</h2>
+		<div class="well well-lg" style="height: 120px;">
+   			<form class="form-inline" role="form">
+    		<div class="form-group">
+     		<label for="event_name">이벤트명:</label>
+      		<input type="text" class="form-control" id="event_name" placeholder="EX)경기대 축제">
+    		    		
+      		<label for="begin_time">시작시간:</label>
+      		<input type="text" class="form-control" id="begin_time" placeholder="00:00">
+    		
+      		<label for="end_time">종료 시간:</label>
+      		<input type="text" class="form-control" id="end_time" placeholder="00:00">
+    		
+      		<label for="location">수령 장소:</label>
+      		<input type="text" class="form-control" id="location" placeholder="ex)도서관 앞">
+    		</div>
+   		 	<p>
+   		 	</p><div class="Btn-group">
+			<button type="button" class="btn btn-default" style="float: right;">Enter</button>
+    		<button type="submit" class="btn btn-default" style="float: right;">E-Modify</button>
+    		<button type="button" class="btn btn-default" style="float: right;">Delete</button>
+  			</div>
+  		</form>
+  	</div>
+  	
 		<!-- Modal -->
 		<div id="myModal" class="modal fade" role="dialog">
 			<div class="modal-dialog">
