@@ -29,9 +29,10 @@
 			data-target="#myModal">이벤트 만들기</button>
 
 		<!-- 등록한 이벤트 관리  -->
+		
 		<h2>이벤트 현황</h2>
 		<div class="well well-lg" style="height: 120px;">
-   			<form class="form-inline" role="form">
+   			<form class="form-inline" role="form" action="goitem">
     		<div class="form-group">
      		<label for="event_name">이벤트명:</label>
       		<input type="text" class="form-control" id="event_name" placeholder="EX)경기대 축제">
@@ -46,12 +47,14 @@
       		<input type="text" class="form-control" id="location" placeholder="ex)도서관 앞">
     		</div>
    		 	<p>
-   		 	</p><div class="Btn-group">
-			<button type="button" class="btn btn-default" style="float: right;">Enter</button>
-    		<button type="submit" class="btn btn-default" style="float: right;">E-Modify</button>
+   		 	<div class="Btn-group">
+			<button type="submit" class="btn btn-default" style="float: right;">Enter</button>
+
+  		</form>
+  		    <button type="button" class="btn btn-default" style="float: right;">E-Modify</button>
     		<button type="button" class="btn btn-default" style="float: right;">Delete</button>
   			</div>
-  		</form>
+  			</p>
   	</div>
   	
 		<!-- Modal -->
@@ -64,9 +67,9 @@
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">이벤트</h4>
 					</div>
-					<div class="modal-body" height="400px">
+					<div class="modal-body" style="height:400px">
 
-						<form role="form">
+						<form role="form" action="golist">
 							<div class="form-group">
 								<label for="event_name">이벤트명</label> <input type="text"
 									class="form-control" id="event_name">
@@ -103,7 +106,7 @@
 
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-default">create</button>
+						<button  class="btn btn-default">create</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 				</div>
