@@ -25,10 +25,16 @@ public class IndexController {
 	}
 	
 
-	@RequestMapping(value = "/eventlist", method = RequestMethod.GET)
+	@RequestMapping(value = "/golist", method = RequestMethod.GET)
 	public String event(Locale locale, Model model) {
 
 		return "eventList";
+	}
+	
+	@RequestMapping(value = "/goitem", method = RequestMethod.GET)
+	public String event2(Locale locale, Model model) {
+
+		return "itemRegist";
 	}
 	
 	@RequestMapping(value = "/itemregist", method = RequestMethod.GET)
