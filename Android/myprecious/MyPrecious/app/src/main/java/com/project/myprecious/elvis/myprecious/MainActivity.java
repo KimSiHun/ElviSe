@@ -53,14 +53,13 @@ public class MainActivity extends AppCompatActivity implements NetworkTransport.
         mEnterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phoneNumber =mPhoneNumber.getText().toString();
-                user = new User(phoneNumber);
+                String phonenumber =mPhoneNumber.getText().toString();
+                user = new User(phonenumber);
                 NetworkTransport.getInstance().createUser(user, new NetworkTransport.NetworkTransportCallback() {
                     @Override
                     public void onSuccess(ArrayList result) {
-//                        Intent intent = new Intent(MainActivity.this, EnterQrPage.class);
-//                        startActivity(intent);
-                        Toast.makeText(MainActivity.this, "굿", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, EnterQrPage.class);
+                        startActivity(intent);
                     }
 
                     @Override

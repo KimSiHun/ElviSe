@@ -14,7 +14,7 @@ public interface ProjectApiService {
             "Accept: application/json",
             "Content-Type: application/json",
     })
-    @POST("myprecious/user/insert")
+    @POST("myprecious/user/insert/")
     Call<User> createUser(@Body User user);
 
 }
