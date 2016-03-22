@@ -21,4 +21,12 @@ public class EventService {
 	public int insertEvents(Event event) {
 		return eventDAO.insertEvent(event);
 	}
+	
+	public int editEvents(Event event) {
+		return eventDAO.editEvent(event);
+	}
+	
+	public int deleteEvents(int e_no){
+		return eventDAO.deleteEvent(e_no);
+	}
 }

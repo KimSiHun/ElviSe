@@ -23,4 +23,12 @@ public class EventDAO {
 	public int insertEvent(Event event) {
 		return sqlSession.insert(MAPPER_NS + ".insertEvent", event);
 	}
+	
+	public int editEvent(Event event){
+		return sqlSession.update(MAPPER_NS + ".editEvent", event); 
+	}
+	
+	public int deleteEvent(int e_no) {
+		return sqlSession.delete(MAPPER_NS + ".deleteEvent", e_no); 
+	}
 }

@@ -54,4 +54,32 @@ public class EventController {
 		return response;
 	
 	}
+	
+	@RequestMapping(value = "admin/{adminId}/event/{e_no}", method = RequestMethod.PUT, produces = "application/json")
+	@ResponseBody
+	public ResponseObject editEvent(@PathVariable int adminId, @RequestBody Event event, @PathVariable int e_no){
+		event.setAdminId(adminId);
+		event.setE_no(e_no);
+		eventService.editEvents(event);
+		
+		ResponseObject response = new ResponseObject();
+		response.code = 0;
+		response.msg = "성공";
+		response.body = event;
+		
+		return response;
+	}
+	
+	@RequestMapping(value = "admin/{adminId}/event/{e_no}", method = RequestMethod.DELETE, produces = "application/json")
+	@ResponseBody
+	public ResponseObject deleteEvent(@PathVariable int adminId, @PathVariable int e_no){
+		eventService.deleteEvents(e_no);
+		
+		ResponseObject response = new ResponseObject();
+		response.code = 0;
+		response.msg = "성공";
+		
+		return response;
+	}
+	 
 }
