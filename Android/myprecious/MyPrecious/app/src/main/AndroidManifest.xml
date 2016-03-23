@@ -20,7 +20,7 @@
 
         <activity android:name=".InfoActivity"/>
         <activity android:name=".PreciousResult"></activity>
-        <activity android:name=".EnterQrPage"></activity>
+        <activity android:name=".EventGetActivity"></activity>
     </application>
 
 </manifest>

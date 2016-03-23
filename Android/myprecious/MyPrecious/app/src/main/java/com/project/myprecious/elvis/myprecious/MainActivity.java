@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.project.myprecious.elvis.myprecious.Network.NetworkTransport;
 import com.project.myprecious.elvis.myprecious.beans.User;
+import com.project.myprecious.elvis.myprecious.widget.EnterQrPage;
 
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements NetworkTransport.
                 NetworkTransport.getInstance().createUser(user, new NetworkTransport.NetworkTransportCallback() {
                     @Override
                     public void onSuccess(ArrayList result) {
-                        Intent intent = new Intent(MainActivity.this, EnterQrPage.class);
+                        Intent intent = new Intent(MainActivity.this, EventGetActivity.class);
                         startActivity(intent);
                     }
 
