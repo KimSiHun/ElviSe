@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements NetworkTransport.
         goBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PreciousOpen.class);
+                Intent intent = new Intent(MainActivity.this, InfoActivity.class);
                 startActivity(intent);
             }
         });

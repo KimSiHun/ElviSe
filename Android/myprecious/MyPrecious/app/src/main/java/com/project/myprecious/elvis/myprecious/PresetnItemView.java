@@ -14,7 +14,6 @@ public class PresetnItemView extends LinearLayout {
 
     public PresetnItemView(Context context) {
         super(context);
-
         init(context);
     }
 
