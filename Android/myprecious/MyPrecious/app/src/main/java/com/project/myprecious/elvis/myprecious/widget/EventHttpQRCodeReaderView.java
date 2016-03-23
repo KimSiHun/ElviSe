@@ -9,16 +9,17 @@ import android.util.AttributeSet;
 import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
 import com.project.myprecious.elvis.myprecious.R;
 import com.project.myprecious.elvis.myprecious.beans.Event;
+import com.project.myprecious.elvis.myprecious.beans.ResponseBody;
 
 import java.util.ArrayList;
 
-public class EnterQrPage extends HttpQRCodeInfoReaderView<ArrayList<Event>>{
+public class EventHttpQRCodeReaderView extends HttpQRCodeInfoReaderView<ArrayList<Event>> {
 
-        public EnterQrPage(Context context, AttributeSet attrs) {
+        public EventHttpQRCodeReaderView(Context context, AttributeSet attrs) {
             super(context, attrs);
         }
 
-        public EnterQrPage(Context context) {
+        public EventHttpQRCodeReaderView(Context context) {
             super(context);
         }
 
