@@ -12,7 +12,7 @@ import android.widget.ListView;
 /**
  * Created by SangMin on 2016-03-16.
  */
-public class PresentFragment extends Fragment{
+public class PresentFragment extends Fragment {
     ListView presentListView;
     PresentListAdapter presentListAdapter;
 

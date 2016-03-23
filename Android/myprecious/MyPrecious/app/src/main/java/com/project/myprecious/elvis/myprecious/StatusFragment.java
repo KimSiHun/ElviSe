@@ -7,14 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by SangMin on 2016-03-16.
- */
-public class StatusFragment extends Fragment{
+
+public class StatusFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     public static StatusFragment newinstance(int sectionNumber) {
-     StatusFragment fragment = new StatusFragment();
+        StatusFragment fragment = new StatusFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
