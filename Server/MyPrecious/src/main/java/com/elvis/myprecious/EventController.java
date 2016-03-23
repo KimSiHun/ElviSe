@@ -48,7 +48,7 @@ public class EventController {
 		
 		ResponseObject response = new ResponseObject();
 		response.code = 0;
-		response.msg = "己傍";
+		response.msg = "靹标车";
 		response.body = event;
 		
 		return response;
@@ -64,7 +64,7 @@ public class EventController {
 		
 		ResponseObject response = new ResponseObject();
 		response.code = 0;
-		response.msg = "己傍";
+		response.msg = "靹标车";
 		response.body = event;
 		
 		return response;
@@ -77,7 +77,7 @@ public class EventController {
 		
 		ResponseObject response = new ResponseObject();
 		response.code = 0;
-		response.msg = "己傍";
+		response.msg = "靹标车";
 		
 		return response;
 	}
