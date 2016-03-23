@@ -19,8 +19,13 @@
         </activity>
 
         <activity android:name=".InfoActivity"></activity>
-        <activity android:name=".PreciousResult"></activity>
-        <activity android:name=".EventGetActivity"></activity>
+        <activity android:name=".PreciousResult">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+
+        </activity>
+        <activity android:name=".EnterQrPage"></activity>
     </application>
 
 </manifest>
