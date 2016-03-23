@@ -8,4 +8,10 @@
 	INSERT INTO event (e_name, e_starttime, e_endtime, e_peoplecnt, adminId) 
 	VALUES (#{e_name}, #{e_starttime}, #{e_endtime}, #{e_peoplecnt}, #{adminId})
 </insert>
+<update id="editEvent" parameterType="com.elvis.myprecious.model.Event">
+	UPDATE event SET e_name=#{e_name}, e_starttime=#{e_starttime}, e_endtime=#{e_endtime}, e_peoplecnt=#{e_peoplecnt}, adminId=#{adminId} WHERE e_no=#{e_no}
+</update>
+<delete id="deleteEvent" parameterType="int">
+	DELETE FROM event WHERE e_no=#{e_no}
+</delete>
 </mapper>
