@@ -1,4 +1,4 @@
-package com.project.myprecious.elvis.myprecious;
+package com.project.myprecious.elvis.myprecious.widget;
 
 import android.content.Context;
 import android.graphics.PointF;
@@ -26,7 +26,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
  * this view will load information from http using QR code information <br>
  * QR code may include http url and this view will request using that urls <br>
  *
- * @see com.project.myprecious.elvis.myprecious.HttpQRCodeInfoReaderView.OnHttpQRCodeInfoListener
+ * @see HttpQRCodeInfoReaderView.OnHttpQRCodeInfoListener
  * @param <T> http response json data.
  */
 public abstract class HttpQRCodeInfoReaderView<T> extends RelativeLayout implements QRCodeReaderView.OnQRCodeReadListener {
