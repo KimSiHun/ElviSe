@@ -29,4 +29,8 @@ public class EventService {
 	public int deleteEvents(int e_no){
 		return eventDAO.deleteEvent(e_no);
 	}
+	
+	public List<Event> getEvent2s(int e_no) {
+		return eventDAO.getEvent2(e_no);
+	}
 }

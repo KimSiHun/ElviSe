@@ -31,4 +31,8 @@ public class EventDAO {
 	public int deleteEvent(int e_no) {
 		return sqlSession.delete(MAPPER_NS + ".deleteEvent", e_no); 
 	}
+	
+	public List<Event> getEvent2(int e_no) {
+		return sqlSession.selectList(MAPPER_NS + ".getEvent", e_no);
+	}
 }
