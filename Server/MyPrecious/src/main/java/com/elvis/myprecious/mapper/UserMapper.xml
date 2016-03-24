@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.elvis.myprecious.dao.UserMapper">
-	<insert id="insertUser" parameterType="com.elvis.myprecious.model.User"> insert into `TestDB`.`user` (`u_phonenumber`) VALUES (#{u_phonenumber})</insert>
+	<insert id="insertUser" parameterType="com.elvis.myprecious.model.User"> insert into
+		`TestDB`.`user` (`u_phonenumber`,`u_e_no`) VALUES
+		(#{u_phonenumber},#{u_e_no})</insert>
+	<select id="selectUser" resultType="com.elvis.myprecious.model.User">
+		select * from user
+	</select>
 </mapper>
