@@ -5,7 +5,7 @@ public class Item {
     private String i_name;
     private String i_img;
     private String i_e_name;
-    private String i_getTime;
+    private String i_gettime;
 
     public int getI_no() {
         return i_no;
@@ -39,11 +39,11 @@ public class Item {
         this.i_e_name = i_e_name;
     }
 
-    public String getI_getTime() {
-        return i_getTime;
+    public String getI_gettime() {
+        return i_gettime;
     }
 
-    public void setI_getTime(String i_getTime) {
-        this.i_getTime = i_getTime;
+    public void setI_gettime(String i_gettime) {
+        this.i_gettime = i_gettime;
     }
 }

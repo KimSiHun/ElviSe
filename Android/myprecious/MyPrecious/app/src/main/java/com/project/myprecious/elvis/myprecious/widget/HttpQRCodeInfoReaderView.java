@@ -26,7 +26,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
  * this view will load information from http using QR code information <br>
  * QR code may include http url and this view will request using that urls <br>
  *
- * @see HttpQRCodeInfoReaderView.OnHttpQRCodeInfoListener
+ * @see com.project.myprecious.elvis.myprecious.widget.HttpQRCodeInfoReaderView.OnHttpQRCodeInfoListener
  * @param <T> http response json data.
  */
 public abstract class HttpQRCodeInfoReaderView<T> extends RelativeLayout implements QRCodeReaderView.OnQRCodeReadListener {

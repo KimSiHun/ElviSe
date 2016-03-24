@@ -3,9 +3,9 @@ package com.project.myprecious.elvis.myprecious.beans;
 public class Event {
     private int e_no;
     private String e_name;
-    private String e_startTime;
-    private String e_endTime;
-    private int e_peopleCnt;
+    private String e_starttime;
+    private String e_endtime;
+    private int e_peoplecnt;
 
     public int getE_no() {
         return e_no;
@@ -15,12 +15,12 @@ public class Event {
         this.e_no = e_no;
     }
 
-    public String getE_startTime() {
-        return e_startTime;
+    public String getE_starttime() {
+        return e_starttime;
     }
 
-    public void setE_startTime(String e_startTime) {
-        this.e_startTime = e_startTime;
+    public void setE_starttime(String e_starttime) {
+        this.e_starttime = e_starttime;
     }
 
     public String getE_name() {
@@ -31,19 +31,19 @@ public class Event {
         this.e_name = e_name;
     }
 
-    public String getE_endTime() {
-        return e_endTime;
+    public String getE_endtime() {
+        return e_endtime;
     }
 
-    public void setE_endTime(String e_endTime) {
-        this.e_endTime = e_endTime;
+    public void setE_endtime(String e_endtime) {
+        this.e_endtime = e_endtime;
     }
 
-    public int getE_peopleCnt() {
-        return e_peopleCnt;
+    public int getE_peoplecnt() {
+        return e_peoplecnt;
     }
 
-    public void setE_peopleCnt(int e_peopleCnt) {
-        this.e_peopleCnt = e_peopleCnt;
+    public void setE_peoplecnt(int e_peoplecnt) {
+        this.e_peoplecnt = e_peoplecnt;
     }
 }

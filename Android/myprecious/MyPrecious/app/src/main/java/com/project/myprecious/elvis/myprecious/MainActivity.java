@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.project.myprecious.elvis.myprecious.Network.NetworkTransport;
 import com.project.myprecious.elvis.myprecious.beans.User;
-import com.project.myprecious.elvis.myprecious.widget.EnterQrPage;
 
 import java.util.ArrayList;
 
@@ -54,18 +53,19 @@ public class MainActivity extends AppCompatActivity implements NetworkTransport.
         mEnterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phonenumber =mPhoneNumber.getText().toString();
+                String phonenumber = mPhoneNumber.getText().toString();
                 user = new User(phonenumber);
                 NetworkTransport.getInstance().createUser(user, new NetworkTransport.NetworkTransportCallback() {
                     @Override
                     public void onSuccess(ArrayList result) {
-                        Intent intent = new Intent(MainActivity.this, EventGetActivity.class);
+                        Intent intent = new Intent(MainActivity.this, QrCodeActivity.class);
                         startActivity(intent);
+                        finish();
                     }
 
                     @Override
                     public void onFailure() {
-                    Toast.makeText(MainActivity.this, "다시 시도해주세요", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "다시 시도해주세요", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
