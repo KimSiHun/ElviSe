@@ -14,4 +14,7 @@
 <delete id="deleteEvent" parameterType="int">
 	DELETE FROM event WHERE e_no=#{e_no}
 </delete>
+<select id="getEvent2" resultType="com.elvis.myprecious.model.Event">
+	SELECT * FROM event where e_no=#{e_no}
+</select> 
 </mapper>
