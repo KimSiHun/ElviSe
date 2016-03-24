@@ -1,5 +1,7 @@
 package com.elvis.myprecious.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,5 +18,10 @@ public class UserDAO {
 	public int insertUser(User user) {
 
 		return sqlSession.update(MAPPER_NS + ".insertUser", user);
+	}
+	
+	// user select
+	public List<User> selectUser(){
+		return sqlSession.selectList(MAPPER_NS + ".selectUser");
 	}
 }
