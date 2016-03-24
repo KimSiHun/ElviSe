@@ -54,11 +54,11 @@ public class NetworkTransport {
         return instance;
     }
 
-    public void createUser(User user, final NetworkTransportCallback callback){
-        mService.createUser(user).enqueue(new Callback<User>() {
+    public void createUser(int e_no, User user, final NetworkTransportCallback callback){
+        mService.createUser(e_no,user).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Log.e(LOG_TAG,"createUser.onResponse");
+                Log.d(LOG_TAG, "createStorage.onResponse");
                 if (callback!=null){
                     mUser.add(response.body());
                     callback.onSuccess(mUser);

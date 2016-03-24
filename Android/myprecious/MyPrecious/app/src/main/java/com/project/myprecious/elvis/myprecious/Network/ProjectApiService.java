@@ -7,6 +7,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ProjectApiService {
 
@@ -14,7 +15,7 @@ public interface ProjectApiService {
             "Accept: application/json",
             "Content-Type: application/json",
     })
-    @POST("myprecious/user/insert/")
-    Call<User> createUser(@Body User user);
+    @POST("/myprecious/events/{e_no}/users")
+    Call<User> createUser(@Path("e_no") int no,@Body User user);
 
 }
