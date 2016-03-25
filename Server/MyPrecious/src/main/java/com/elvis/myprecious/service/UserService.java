@@ -1,11 +1,7 @@
 package com.elvis.myprecious.service;
 
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Service;
@@ -59,5 +55,11 @@ public class UserService {
 		
 		dstm.commit(status);
 		return commitFlag;
+	}
+	
+	
+	public List<User> loginUser(User user) {
+		
+		return userDAO.loginUser(user);
 	}
 }

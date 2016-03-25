@@ -19,9 +19,14 @@ public class UserDAO {
 
 		return sqlSession.update(MAPPER_NS + ".insertUser", user);
 	}
-	
+
 	// user select
-	public List<User> selectUser(){
+	public List<User> selectUser() {
 		return sqlSession.selectList(MAPPER_NS + ".selectUser");
+	}
+
+	// login user
+	public List<User> loginUser(User user) {
+		return sqlSession.selectList(MAPPER_NS + ".loginUser", user);
 	}
 }
