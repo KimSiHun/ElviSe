@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.elvis.myprecious.dao.UserDAO;
 import com.elvis.myprecious.model.ResponseObject;
 import com.elvis.myprecious.model.User;
 import com.elvis.myprecious.service.UserService;
@@ -32,14 +31,30 @@ public class UserController {
 		user.setU_e_no(e_no);
 
 		ResponseObject response = new ResponseObject();
-		if (userService.insertUser(user) == 1) {			
+		if (userService.insertUser(user) == 1) {
 			response.code = 0;
-			response.msg = "신규유저 추가되었습니다.";			
-		} else{
+			response.msg = "신규유저 추가되었습니다.";
+		} else {
 			response.code = 1;
 			response.msg = "이미 있는 유저입니다.";
 		}
 		return response;
 
+	}
+
+	@RequestMapping(value = "/events/{e_no}/users/{u_phonenumber}")
+	@ResponseBody
+	public ResponseObject loginUser(@PathVariable("e_no") int e_no, @PathVariable("u_phonenumber") String u_phonenumber) {
+		User user = new User();
+		user.setU_phonenumber(u_phonenumber);
+		user.setU_e_no(e_no);
+		
+		logger.info(".selectUser");
+		
+		ResponseObject response = new ResponseObject();
+		response.code = 0;
+		response.msg = "null";
+		response.body = userService.loginUser(user);
+		return response;
 	}
 }
