@@ -14,7 +14,11 @@ public class ItemService {
 	@Autowired
 	ItemDAO itemDAO;
 	
-	public List<Item> getItems(){
-		return itemDAO.getItem();
+	public List<Item> getItems(int adminId, int i_e_no){
+		return itemDAO.getItem(adminId, i_e_no);
+	}
+	
+	public int insertItems(Item item) {
+		return itemDAO.insertItem(item);
 	}
 }
