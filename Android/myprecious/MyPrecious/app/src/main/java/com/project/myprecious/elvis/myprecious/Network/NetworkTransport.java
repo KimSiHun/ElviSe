@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import com.project.myprecious.elvis.myprecious.beans.Event;
 import com.project.myprecious.elvis.myprecious.beans.ResponseBody;
 import com.project.myprecious.elvis.myprecious.beans.User;
 
@@ -71,6 +72,20 @@ public class NetworkTransport {
             }
         });
     }
+//
+//    public void getEvent(Event event,final NetworkTransportCallback callback){
+//        mService.getEvent().enqueue(new Callback<Event>() {
+//            @Override
+//            public void onResponse(Call<Event> call, Response<Event> response) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Event> call, Throwable t) {
+//
+//            }
+//        });
+//    }
     public interface NetworkTransportCallback<T> {
         void onSuccess(ArrayList<T> result);
 
