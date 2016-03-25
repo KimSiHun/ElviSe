@@ -13,5 +13,8 @@
 </update>
 <delete id="deleteItem" parameterType="int">
 	DELETE FROM item WHERE i_no=#{i_no}
-</delete>	
+</delete>
+<select id="getItem2" resultType="com.elvis.myprecious.model.Item">
+	select * from item where i_e_no=#{i_e_no}
+</select>	
 </mapper>

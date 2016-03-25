@@ -29,4 +29,8 @@ public class ItemService {
 	public int deleteItems(int i_no) {
 		return itemDAO.deleteItem(i_no);
 	}
+	
+	public List<Item> getItem2s(int i_e_no){
+		return itemDAO.getItem2(i_e_no);
+	}
 }

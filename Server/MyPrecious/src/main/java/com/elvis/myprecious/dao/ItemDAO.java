@@ -35,5 +35,8 @@ public class ItemDAO {
 		return sqlSession.delete(MAPPER_NS + ".deleteItem", i_no);
 	}
 	
+	public List<Item> getItem2(int i_e_no) {
+		return sqlSession.selectList(MAPPER_NS + ".getItem2", i_e_no);
+	}
 	
 }

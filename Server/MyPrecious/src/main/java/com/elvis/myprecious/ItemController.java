@@ -84,4 +84,16 @@ public class ItemController {
 		return response;
 	}
 	
+	@RequestMapping(value = "av/events/{e_no}/items", method = RequestMethod.GET, produces = "application/json")
+	@ResponseBody
+	public ResponseObject getItem2(HttpServletRequest request, @PathVariable int e_no) {
+		
+		ResponseObject response = new ResponseObject();
+		response.code = 0;
+		response.msg = null;
+		response.body = itemService.getItem2s(e_no);
+		
+		return response;
+	}
+	
 }

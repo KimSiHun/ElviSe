@@ -91,7 +91,7 @@ public class EventController {
 		ResponseObject response = new ResponseObject();
 		response.code = 0;
 		response.msg = null;
-		response.body = eventService.getEvents(e_no);
+		response.body = eventService.getEvent2s(e_no);
 		
 		return response;
 	}
