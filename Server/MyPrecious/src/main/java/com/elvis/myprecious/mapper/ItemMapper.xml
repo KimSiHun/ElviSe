@@ -7,5 +7,11 @@
 <insert id="insertItem" parameterType="com.elvis.myprecious.model.Item" useGeneratedKeys="true" keyProperty="id">
 	INSERT INTO item (i_name, i_img, i_e_no, i_gettime)
 	VALUES (#{i_name}, #{i_img}, #{i_e_no}, #{i_gettime})
-</insert>	
+</insert>
+<update id="editItem" parameterType="com.elvis.myprecious.model.Item">
+	UPDATE item SET i_name=#{i_name}, i_img=#{i_img}, i_gettime=#{i_gettime} WHERE i_e_no=#{i_e_no}
+</update>
+<delete id="deleteItem" parameterType="int">
+	DELETE FROM item WHERE i_no=#{i_no}
+</delete>	
 </mapper>

@@ -58,4 +58,30 @@ public class ItemController {
 		return response;
 	}
 	 
+	@RequestMapping(value = "wv/admins/{adminId}/events/{e_no}/items/{i_no}", method = RequestMethod.PUT, produces = "application/json")
+	@ResponseBody
+	public ResponseObject editItem(@PathVariable("adminId") int adminId, @PathVariable("e_no") int e_no, @PathVariable("i_no") int i_no, @RequestBody Item item){
+		item.setI_e_no(i_no);
+		itemService.editItems(item);
+		
+		ResponseObject response = new ResponseObject();
+		response.code = 0;
+		response.msg = "성공";
+		response.body = item;
+		
+		return response;
+	}
+	
+	@RequestMapping(value = "wv/admins/{adminId}/events/{e_no}/items/{i_no}", method = RequestMethod.DELETE, produces = "application/json")
+	@ResponseBody
+	public ResponseObject deleteItem(@PathVariable int i_no){
+		itemService.deleteItems(i_no);
+		
+		ResponseObject response = new ResponseObject();
+		response.code = 0;
+		response.msg = "성공";
+		
+		return response;
+	}
+	
 }

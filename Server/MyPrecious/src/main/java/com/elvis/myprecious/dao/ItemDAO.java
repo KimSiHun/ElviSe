@@ -27,5 +27,13 @@ public class ItemDAO {
 		return sqlSession.insert(MAPPER_NS + ".insertItem", item);
 	}
 	
+	public int editItem(Item item) {
+		return sqlSession.update(MAPPER_NS + ".editItem", item);
+	}
+	
+	public int deleteItem(int i_no) {
+		return sqlSession.delete(MAPPER_NS + ".deleteItem", i_no);
+	}
+	
 	
 }

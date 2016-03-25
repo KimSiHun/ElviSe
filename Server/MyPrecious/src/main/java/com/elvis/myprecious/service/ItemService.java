@@ -21,4 +21,12 @@ public class ItemService {
 	public int insertItems(Item item) {
 		return itemDAO.insertItem(item);
 	}
+	
+	public int editItems(Item item) {
+		return itemDAO.editItem(item);
+	}
+	
+	public int deleteItems(int i_no) {
+		return itemDAO.deleteItem(i_no);
+	}
 }
