@@ -24,7 +24,7 @@ public class EventController {
 	@Autowired
 	EventService eventService;
 	
-	@RequestMapping(value = "admins/{adminId}/events", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "wv/admins/{adminId}/events", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public ResponseObject getEvent(HttpServletRequest request, @PathVariable int adminId) {
 		logger.info("getEvent");
@@ -38,7 +38,7 @@ public class EventController {
 		return response;
 	}
 	
-	@RequestMapping(value = "admins/{adminId}/events", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "wv/admins/{adminId}/events", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
 	public ResponseObject insertEvent(@PathVariable int adminId, @RequestBody Event event) {
 		logger.info("insertEvent");
@@ -55,7 +55,7 @@ public class EventController {
 	
 	}
 	
-	@RequestMapping(value = "admins/{adminId}/events/{e_no}", method = RequestMethod.PUT, produces = "application/json")
+	@RequestMapping(value = "wv/admins/{adminId}/events/{e_no}", method = RequestMethod.PUT, produces = "application/json")
 	@ResponseBody
 	public ResponseObject editEvent(@PathVariable int adminId, @RequestBody Event event, @PathVariable int e_no){
 		event.setAdminId(adminId);
@@ -70,7 +70,7 @@ public class EventController {
 		return response;
 	}
 	
-	@RequestMapping(value = "admins/{adminId}/events/{e_no}", method = RequestMethod.DELETE, produces = "application/json")
+	@RequestMapping(value = "wv/admins/{adminId}/events/{e_no}", method = RequestMethod.DELETE, produces = "application/json")
 	@ResponseBody
 	public ResponseObject deleteEvent(@PathVariable int adminId, @PathVariable int e_no){
 		eventService.deleteEvents(e_no);
@@ -82,7 +82,7 @@ public class EventController {
 		return response;
 	}
 	
-	@RequestMapping(value = "events/{e_no}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "av/events/{e_no}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public ResponseObject getEvent2(HttpServletRequest request, @PathVariable int e_no) {
 		logger.info("getEvent");

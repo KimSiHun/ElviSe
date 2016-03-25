@@ -46,6 +46,115 @@
        }
     </style>
 
+<script>
+//$(document).ready(function() {
+
+var Base64 = {
+
+		// private property
+		_keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+
+		// public method for encoding
+		encode : function (input) {
+			var output = "";
+			var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+			var i = 0;
+
+			while (i < input.length) {
+
+			  chr1 = input.charCodeAt(i++);
+			  chr2 = input.charCodeAt(i++);
+			  chr3 = input.charCodeAt(i++);
+
+			  enc1 = chr1 >> 2;
+			  enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+			  enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+			  enc4 = chr3 & 63;
+
+			  if (isNaN(chr2)) {
+				  enc3 = enc4 = 64;
+			  } else if (isNaN(chr3)) {
+				  enc4 = 64;
+			  }
+
+			  output = output +
+				  this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
+				  this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+
+			}
+
+			return output;
+		},
+
+		// public method for decoding
+		decode : function (input)
+		{
+		    var output = "";
+		    var chr1, chr2, chr3;
+		    var enc1, enc2, enc3, enc4;
+		    var i = 0;
+
+		    input = input.replace(/[^A-Za-z0-9+/=]/g, "");
+
+		    while (i < input.length)
+		    {
+		        enc1 = this._keyStr.indexOf(input.charAt(i++));
+		        enc2 = this._keyStr.indexOf(input.charAt(i++));
+		        enc3 = this._keyStr.indexOf(input.charAt(i++));
+		        enc4 = this._keyStr.indexOf(input.charAt(i++));
+
+		        chr1 = (enc1 << 2) | (enc2 >> 4);
+		        chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+		        chr3 = ((enc3 & 3) << 6) | enc4;
+
+		        output = output + String.fromCharCode(chr1);
+
+		        if (enc3 != 64) {
+		            output = output + String.fromCharCode(chr2);
+		        }
+		        if (enc4 != 64) {
+		            output = output + String.fromCharCode(chr3);
+		        }
+		    }
+
+		    return output;
+		}
+	}
+
+	
+//in JavaScript Code
+function changeSourceView(obj){
+	var encodeStr = Base64.encode( obj.value );
+	var decodeStr = Base64.decode( encodeStr );
+	
+	
+     if(event.keyCode == 13){
+		 document.write(encodeStr);
+     }
+     $.ajax({
+    	    url: 'admin/loginCheck',
+    	    data: { 'c_posterName' : encodeStr},
+    	    type: "post",
+    	    cache: false,
+    	    success: function (data, stat, xhr) {      
+    	    	
+    	       
+    		alert("success");
+    		
+    		
+    	    },
+    	    error: function (xhr, stat, err) {
+    	       alert("fail login");
+    	  console.log(err);
+    	    }
+    	});
+}
+
+
+//});
+</script>
+
+
   </head>
   <body>
 
@@ -75,14 +184,14 @@
         </div>
         <div class="modal-body" style="padding:40px 50px;">
         
-          <form action="abcd">
+          <form name="mainForm" action="abcd">
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
               <input type="text" class="form-control" id="usrname" placeholder="Enter name">
             </div>
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+              <input onkeydown="changeSourceView(this)" name="source" type="text" class="form-control" id="psw" placeholder="Enter password">
             </div>
 
               <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>

@@ -71,29 +71,32 @@
 
 						<form role="form" action="golist">
 							<div class="form-group">
-								<label for="event_name">이벤트명</label> <input type="text"
-									class="form-control" id="event_name">
+								<label for="event_name">이벤트명</label> <input id="input_event_name" type="text"
+									class="form-control">
 							</div>
 							<div class="row">
 								<div class="col-xs-3">
-									<label for="begin_time">시작시간</label> <input type="text"
+									<label for="begin_time">시작시간</label> <input id="input_begin_time" type="text"
 										class="form-control" placeholder="00:00">
 								</div>
 								<div class="col-xs-3">
-									<label for="end_time">종료시간</label> <input type="text"
+									<label for="end_time">종료시간</label> <input id="input_end_time" type="text"
 										class="form-control" placeholder="00:00">
 								</div>
 								<div class="col-xs-4">
-									<label for="location">수령장소</label> <input type="text"
+									<label for="location">수령장소</label> <input id="input_location" type="text"
 										class="form-control" placeholder="ex)도서관 앞">
 								</div>
 							</div>
 
 
 							<div class="form-group">
-								<label for="eventQR_link">QR code</label> <input type="text"
-									class="form-control" id="eventQR_link">
+								<label for="eventQR">QR code</label> 
+								
 							</div>
+							
+							<!-- 여기는 QRCode 이미지 나타날 자리 -->
+							<div><img id="qrcode" src="" /></div>
 
 
 
@@ -106,7 +109,7 @@
 
 					</div>
 					<div class="modal-footer">
-						<button  class="btn btn-default">create</button>
+						<button id="createBtn" class="btn btn-default">create</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 				</div>
@@ -114,6 +117,46 @@
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+	
+	
+	$(document).ready(function(){
+		
+		$('#createBtn').click(function(){
+			
+			// input에 입력하는 값들을 변수에 저장
+			var event_name = $('#input_event_name').val();
+			var begin_time = $('#input_begin_time').val();
+			var end_time = $('#input_end_time').val();
+			var location = $('#input_location').val();
+			
+			// 한글처리인데 이게 필요할까?
+			event_name = encodeURIComponent(event_name);
+			begin_time = encodeURIComponent(begin_time);
+			end_time = encodeURIComponent(end_time);
+			location = encodeURIComponent(location);
+			
+			// 주소가 너무 길어서 헷갈리니까 기본 URL을 변수에 저장
+		    googleQRUrl = "https://chart.googleapis.com/chart?chs=177x177&cht=qr&chl=";
+		    
+		    // 그냥 콘솔에서 한번 검사
+			console.log(event_name, begin_time, end_time, location);
+			
+				// QR코드 이미지 url을 만들어서 id="qrcode" 여기 src에 넣기
+		    	$('#qrcode').attr('src', googleQRUrl + "이벤트명:" + event_name + "/ 시작시간:" + begin_time + "/ 종료시간:" + end_time + "/ 수령장소:" + location + '&choe=UTF-8');
+
+		    
+		});
+	 
+	   
+	 
+	});
+	
+	
+	
+	
+	</script>
 
 
 </body>

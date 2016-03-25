@@ -1,10 +1,7 @@
 package com.project.myprecious.elvis.myprecious;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.project.myprecious.elvis.myprecious.beans.Event;
 import com.project.myprecious.elvis.myprecious.beans.ResponseBody;

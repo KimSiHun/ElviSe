@@ -15,8 +15,9 @@ import com.project.myprecious.elvis.myprecious.beans.User;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NetworkTransport.NetworkTransportCallback<User> {
-    private User user;
+    private int e_no=3;
 
+    private User user;
     private EditText mPhoneNumber;
     private Button mEnterBtn;
     private Button goBtn1;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements NetworkTransport.
             public void onClick(View v) {
                 String phonenumber = mPhoneNumber.getText().toString();
                 user = new User(phonenumber);
-                NetworkTransport.getInstance().createUser(user, new NetworkTransport.NetworkTransportCallback() {
+                NetworkTransport.getInstance().createUser(e_no,user, new NetworkTransport.NetworkTransportCallback() {
                     @Override
                     public void onSuccess(ArrayList result) {
                         Intent intent = new Intent(MainActivity.this, QrCodeActivity.class);

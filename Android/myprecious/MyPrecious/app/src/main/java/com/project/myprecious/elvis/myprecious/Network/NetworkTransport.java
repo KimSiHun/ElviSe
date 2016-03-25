@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import com.project.myprecious.elvis.myprecious.beans.Event;
 import com.project.myprecious.elvis.myprecious.beans.ResponseBody;
 import com.project.myprecious.elvis.myprecious.beans.User;
 
@@ -54,11 +55,11 @@ public class NetworkTransport {
         return instance;
     }
 
-    public void createUser(User user, final NetworkTransportCallback callback){
-        mService.createUser(user).enqueue(new Callback<User>() {
+    public void createUser(int e_no, User user, final NetworkTransportCallback callback){
+        mService.createUser(e_no,user).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Log.e(LOG_TAG,"createUser.onResponse");
+                Log.d(LOG_TAG, "createStorage.onResponse");
                 if (callback!=null){
                     mUser.add(response.body());
                     callback.onSuccess(mUser);
@@ -71,6 +72,20 @@ public class NetworkTransport {
             }
         });
     }
+//
+//    public void getEvent(Event event,final NetworkTransportCallback callback){
+//        mService.getEvent().enqueue(new Callback<Event>() {
+//            @Override
+//            public void onResponse(Call<Event> call, Response<Event> response) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Event> call, Throwable t) {
+//
+//            }
+//        });
+//    }
     public interface NetworkTransportCallback<T> {
         void onSuccess(ArrayList<T> result);
 
