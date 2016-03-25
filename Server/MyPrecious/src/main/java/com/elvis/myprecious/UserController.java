@@ -22,7 +22,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value = "events/{e_no}/users", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/av/events/{e_no}/users", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
 	public ResponseObject insertUser(@RequestBody User user, @PathVariable("e_no") int e_no) throws Exception {
 		// TODO 중복처리해야됨
@@ -42,12 +42,11 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/events/{e_no}/users/{u_phonenumber}")
+	@RequestMapping(value = "/av/events/{e_no}/users/{u_phonenumber}")
 	@ResponseBody
 	public ResponseObject loginUser(@PathVariable("e_no") int e_no, @PathVariable("u_phonenumber") String u_phonenumber) {
-		User user = new User();
-		user.setU_phonenumber(u_phonenumber);
-		user.setU_e_no(e_no);
+		
+		User user = new User(0, u_phonenumber, e_no);
 		
 		logger.info(".selectUser");
 		
