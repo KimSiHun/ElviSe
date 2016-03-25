@@ -69,7 +69,7 @@
 					</div>
 					<div class="modal-body" style="height:400px">
 
-						<form id="makeEventForm" role="form"  method="get" action="make.Event">
+						<form id="makeEventForm" role="form" method="get" action="golist">
 							<div class="form-group">
 								<label for="event_name">이벤트명</label> <input id="input_event_name" type="text"
 									class="form-control">
