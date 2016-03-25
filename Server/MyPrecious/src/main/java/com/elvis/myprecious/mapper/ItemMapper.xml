@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.elvis.myprecious.dao.ItemMapper">
-	<select id="getItem" resultType="com.elvis.myprecious.model.Item">
-		select * from item
-	</select>
+<select id="getItem" resultType="com.elvis.myprecious.model.Item" parameterType="hashmap">
+		select * from item where i_e_no=#{i_e_no}
+</select>
+<insert id="insertItem" parameterType="com.elvis.myprecious.model.Item" useGeneratedKeys="true" keyProperty="id">
+	INSERT INTO item (i_name, i_img, i_e_no, i_gettime)
+	VALUES (#{i_name}, #{i_img}, #{i_e_no}, #{i_gettime})
+</insert>	
 </mapper>
