@@ -96,4 +96,17 @@ public class ItemController {
 		return response;
 	}
 	
+	@RequestMapping(value = "av/events/{e_no}/items/{i_no}/users/{u_phonenumber}", method = RequestMethod.PUT, produces = "application/json")
+	@ResponseBody
+	public ResponseObject editItem2(@PathVariable("e_no") int e_no, @PathVariable("i_no") int i_no, @RequestBody Item item, @PathVariable("u_phonenumber") int u_phonenumber){
+		item.setI_no(i_no);
+		itemService.editItems(item);
+		
+		ResponseObject response = new ResponseObject();
+		response.code = 0;
+		response.msg = "성공";
+		response.body = item;
+		
+		return response;
+	}
 }

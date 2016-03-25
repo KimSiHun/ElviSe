@@ -16,5 +16,8 @@
 </delete>
 <select id="getItem2" resultType="com.elvis.myprecious.model.Item">
 	select * from item where i_e_no=#{i_e_no}
-</select>	
+</select>
+<update id="editItem2" parameterType="com.elvis.myprecious.model.Item">
+	UPDATE item SET i_name=#{i_name}, i_img=#{i_img}, i_gettime=#{i_gettime} WHERE i_no=#{i_no}
+</update>	
 </mapper>

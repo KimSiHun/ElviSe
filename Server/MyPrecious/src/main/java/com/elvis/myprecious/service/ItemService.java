@@ -33,4 +33,8 @@ public class ItemService {
 	public List<Item> getItem2s(int i_e_no){
 		return itemDAO.getItem2(i_e_no);
 	}
+	
+	public int editItem2s(Item item) {
+		return itemDAO.editItem2(item);
+	}
 }

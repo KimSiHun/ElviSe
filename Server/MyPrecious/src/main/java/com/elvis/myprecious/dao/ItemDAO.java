@@ -39,4 +39,8 @@ public class ItemDAO {
 		return sqlSession.selectList(MAPPER_NS + ".getItem2", i_e_no);
 	}
 	
+	public int editItem2(Item item) {
+		return sqlSession.update(MAPPER_NS + ".editItem2", item);
+	}
+	
 }
