@@ -3,8 +3,13 @@
 <mapper namespace="com.elvis.myprecious.dao.UserMapper">
 	<insert id="insertUser" parameterType="com.elvis.myprecious.model.User"> insert into
 		`TestDB`.`user` (`u_phonenumber`,`u_e_no`) VALUES
-		(#{u_phonenumber},#{u_e_no})</insert>
+		(#{u_phonenumber},#{u_e_no})
+	</insert>
 	<select id="selectUser" resultType="com.elvis.myprecious.model.User">
 		select * from user
+	</select>
+	<select id="loginUser" resultType="com.elvis.myprecious.model.User"
+		parameterType="com.elvis.myprecious.model.User">
+		select * from user where u_phonenumber=#{u_phonenumber} and u_e_no=#{u_e_no}
 	</select>
 </mapper>

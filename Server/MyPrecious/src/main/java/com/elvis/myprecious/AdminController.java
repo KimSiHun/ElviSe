@@ -14,7 +14,7 @@ import com.elvis.myprecious.model.ResponseObject;
 import com.elvis.myprecious.service.AdminService;
 
 @Controller
-@RequestMapping(value="/admins")
+@RequestMapping(value="/wv/admins")
 public class AdminController {
 	
 	Logger logger = Logger.getLogger(AdminController.class.getSimpleName());
