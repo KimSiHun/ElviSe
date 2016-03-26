@@ -9,6 +9,7 @@ import com.project.myprecious.elvis.myprecious.beans.ResponseBody;
 import com.project.myprecious.elvis.myprecious.beans.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -21,7 +22,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetworkTransport {
 
     private static final String LOG_TAG = NetworkTransport.class.getSimpleName();
+    private static HashMap<Integer, HashMap<String, ArrayList<User>>> mEventUser = new HashMap<>();
 
+    private static ArrayList<Event> mEvent = new ArrayList<>();
     private static ArrayList<User> mUser = new ArrayList<>();
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static NetworkTransport instance = new NetworkTransport();
@@ -55,12 +58,12 @@ public class NetworkTransport {
         return instance;
     }
 
-    public void createUser(int e_no, User user, final NetworkTransportCallback callback){
-        mService.createUser(e_no,user).enqueue(new Callback<User>() {
+    public void createUser(int e_no, User user, final NetworkTransportCallback callback) {
+        mService.createUser(e_no, user).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Log.d(LOG_TAG, "createStorage.onResponse");
-                if (callback!=null){
+                Log.d(LOG_TAG, "createUser.onResponse");
+                if (callback != null) {
                     mUser.add(response.body());
                     callback.onSuccess(mUser);
                 }
@@ -72,20 +75,43 @@ public class NetworkTransport {
             }
         });
     }
-//
-//    public void getEvent(Event event,final NetworkTransportCallback callback){
-//        mService.getEvent().enqueue(new Callback<Event>() {
-//            @Override
-//            public void onResponse(Call<Event> call, Response<Event> response) {
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Event> call, Throwable t) {
-//
-//            }
-//        });
-//    }
+
+    public void getUser(final int e_no, final String phonenumber, final NetworkTransportCallback callback) {
+        Log.e(LOG_TAG, "getUser");
+        mService.getUser(e_no, phonenumber).enqueue(new Callback<ResponseBody<ArrayList<User>>>() {
+            @Override
+            public void onResponse(Call<ResponseBody<ArrayList<User>>> call, Response<ResponseBody<ArrayList<User>>> response) {
+                if(callback!=null){
+                    Log.e(LOG_TAG, "getUser.onResponse");
+                    ArrayList<User> users=getCachedUser(e_no,phonenumber);
+                    callback.onSuccess(users);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody<ArrayList<User>>> call, Throwable t) {
+                Log.e(LOG_TAG, "getUser.onFailure");
+            }
+        });
+    }
+
+    //Event e_no랑 User u_phonenumber랑 연관해서 쓰려고 해쉬맵 썼는데 딱히 안써도 됨......
+    public ArrayList<User> getCachedUser(int e_no, String phonenumber) {
+        HashMap<String, ArrayList<User>> event = mEventUser.get(e_no);
+        if (event == null) {
+            event = new HashMap<>();
+            mEventUser.put(e_no, event);
+
+        }
+        ArrayList<User> user = event.get(phonenumber);
+        if (user == null) {
+            user = new ArrayList<User>();
+            event.put(phonenumber, user);
+        }
+        return user;
+    }
+
+
     public interface NetworkTransportCallback<T> {
         void onSuccess(ArrayList<T> result);
 

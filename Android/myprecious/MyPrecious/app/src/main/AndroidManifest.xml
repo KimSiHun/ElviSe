@@ -21,7 +21,7 @@
 
         <activity android:name=".InfoActivity"></activity>
 
-        <activity android:name=".QrCodeActivity"></activity>
+        <activity android:name=".UserJoinActivity"></activity>
 
         <activity android:name=".PreciousResult">
             <meta-data
